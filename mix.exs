@@ -36,7 +36,8 @@ defmodule Broadway.MixProject do
       # Dev/test dependencies.
       {:castore, "~> 1.0", only: :test},
       {:ex_doc, ">= 0.19.0", only: :docs},
-      {:excoveralls, "~> 0.18.0", only: :test}
+      {:excoveralls, "~> 0.18.0", only: :test},
+      {:sobelow, ">= 0.14.0", only: [:dev], runtime: false}
     ]
   end
 

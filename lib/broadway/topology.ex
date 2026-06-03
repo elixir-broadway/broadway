@@ -484,6 +484,8 @@ defmodule Broadway.Topology do
     end
   end
 
+  # Only used while building the application-defined topology, before any messages are processed.
+  # sobelow_skip ["DOS.BinToAtom"]
   defp default_process_name(broadway_name, base_name) when is_atom(broadway_name) do
     :"#{broadway_name}.Broadway.#{base_name}"
   end

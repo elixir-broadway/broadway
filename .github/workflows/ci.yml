@@ -61,6 +61,11 @@ jobs:
       - run: mix compile --warnings-as-errors
         if: ${{ matrix.lint }}
 
+      - run: mix sobelow --conf
+        env:
+          MIX_ENV: dev
+        if: ${{ matrix.lint }}
+
       - run: mix test
         if: ${{!matrix.coverage}}
 
