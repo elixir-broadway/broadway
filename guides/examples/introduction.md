@@ -39,3 +39,4 @@ The following Off-Broadway libraries are available (feel free to send a PR addin
   * [off_broadway_redis](https://github.com/amokan/off_broadway_redis): [Guide](https://hexdocs.pm/off_broadway_redis/)
   * [off_broadway_redis_stream](https://github.com/akash-akya/off_broadway_redis_stream): [Guide](https://hexdocs.pm/off_broadway_redis_stream/)
   * [off_broadway_splunk](https://github.com/intility/off_broadway_splunk): [Guide](https://hexdocs.pm/off_broadway_splunk/)
+  * [off_broadway_klife (kafka)](https://github.com/oliveigah/off_broadway_klife): [Guide](https://hexdocs.pm/off_broadway_klife/)
