@@ -292,7 +292,7 @@ defmodule Broadway.Topology.ProducerStage do
 
   defp maybe_rate_limit_and_buffer_messages(state, messages) do
     if state.rate_limiting && messages != [] do
-      state = update_in(state.rate_limiting.message_buffer, &enqueue_batch(&1, messages))
+      state = update_in(state.rate_limiting.message_buffer, &:queue.in(messages, &1))
       rate_limit_and_buffer_messages(state)
     else
       {state, messages}
@@ -371,9 +371,6 @@ defmodule Broadway.Topology.ProducerStage do
         {demand, Enum.reverse(acc), queue}
     end
   end
-
-  defp enqueue_batch(queue, _list = []), do: queue
-  defp enqueue_batch(queue, list), do: :queue.in(list, queue)
 
   defp enqueue_batch_r(queue, _list = []), do: queue
   defp enqueue_batch_r(queue, list), do: :queue.in_r(list, queue)

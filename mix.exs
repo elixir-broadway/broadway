@@ -14,8 +14,7 @@ defmodule Broadway.MixProject do
       deps: deps(),
       docs: docs(),
       package: package(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [docs: :docs]
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -38,6 +37,10 @@ defmodule Broadway.MixProject do
       {:ex_doc, ">= 0.19.0", only: :docs},
       {:excoveralls, "~> 0.18.0", only: :test}
     ]
+  end
+
+  def cli do
+    [preferred_envs: [docs: :docs]]
   end
 
   defp docs do

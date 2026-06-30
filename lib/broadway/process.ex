@@ -9,12 +9,16 @@ defmodule Broadway.Process do
       Process.set_label(label)
     end
 
-    def labels_supported?, do: true
+    # We don't use just "true" because callers would likely get type warnings,
+    # so we trick the compiler into this being dynamic.
+    def labels_supported?, do: :rand.uniform() >= 0.0
   else
     def set_label(_label) do
       :ok
     end
 
-    def labels_supported?, do: false
+    # We don't use just "true" because callers would likely get type warnings,
+    # so we trick the compiler into this being dynamic.
+    def labels_supported?, do: :rand.uniform() > 1.1
   end
 end
