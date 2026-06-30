@@ -8,7 +8,7 @@ Kafka is a distributed streaming platform that has three key capabilities:
 
 ## Getting Started
 
-In order to use Broadway with Kafka, we need to:
+To use Broadway with Kafka, we need to:
 
   1. Create a stream of records (or use an existing one)
   1. Configure your Elixir project to use Broadway
@@ -69,7 +69,7 @@ we need to define three functions: `start_link/1`, `handle_message/3`
 and optionally `handle_batch/4`. We will cover `start_link/1` in this
 section and the `handle_` callbacks in the next one.
 
-Similar to other process-based behaviours, `start_link/1` simply
+Similar to other process-based behaviours, `start_link/1`
 delegates to `Broadway.start_link/2`, which should define the
 producers, processors, and batchers in the Broadway pipeline.
 Assuming we want to consume messages from a topic called
@@ -125,9 +125,9 @@ module docs as well as `Broadway.start_link/2`.
 
 ## Implement Broadway callbacks
 
-In order to process incoming messages, we need to implement the
+To process incoming messages, we need to implement the
 required callbacks. For the sake of simplicity, we're considering that
-all messages received from the topic are just numbers:
+all messages received from the topic are numbers:
 
     defmodule MyBroadway do
       use Broadway
@@ -163,7 +163,7 @@ For more information, see `c:Broadway.handle_message/3` and
 
 ## Run the Broadway pipeline
 
-To run your `Broadway` pipeline, you just need to add as a child in
+To run your `Broadway` pipeline, add it as a child in
 a supervision tree. Most applications have a supervision tree defined
 at `lib/my_app/application.ex`. You can add Broadway as a child to a
 supervisor as follows:
@@ -242,7 +242,7 @@ for details.
 By setting the `concurrency` option, you define the number of concurrent processes
 that will be started by Broadway, allowing you to have full control over the
 concurrency level in each layer of the pipeline. Keep in mind that since the
-concurrency model provided by **Kafka** is based on **partitioning**, in order to take
+concurrency model provided by **Kafka** is based on **partitioning**, to take
 full advantage of this model, you need to set the `concurrency` option for
 your processors and batchers accordingly. Having less concurrency than topic/partitions
 assigned will result in individual processors handling more than one partition,

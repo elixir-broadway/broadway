@@ -63,7 +63,7 @@ defmodule Broadway do
 
   ## The Broadway behaviour
 
-  In order to use Broadway, you need to:
+  To use Broadway, you need to:
 
     1. Define your pipeline configuration
     2. Define a module implementing the Broadway behaviour
@@ -530,7 +530,7 @@ defmodule Broadway do
   This can be done with the `:partition_by` option, which enforces that
   messages with a given property are always forwarded to the same stage.
 
-  In order to provide partitioning throughout the whole pipeline, just
+  To provide partitioning throughout the whole pipeline,
   set `:partition_by` at the root of your configuration:
 
       defmodule MyBroadway do
@@ -929,7 +929,7 @@ defmodule Broadway do
   `min_demand` value. Producers which are push-based, rather than pull-based,
   such as `BroadwayRabbitMQ.Producer`, are more likely to send messages as they
   arrive (which may skip batching altogether and always be single element lists).
-  In other words, this callback is simply a convenience for preparing messages,
+  In other words, this callback is a convenience for preparing messages,
   it does not guarantee the messages will be accumulated to a certain length.
   For effective batch processing, see `c:handle_batch/4`.
 
@@ -959,10 +959,10 @@ defmodule Broadway do
 
   This is the place to do any kind of processing with the incoming message,
   e.g., transform the data into another data structure, call specific business
-  logic to do calculations. Basically, any CPU bounded task that runs against
+  logic to do calculations. Any CPU bounded task that runs against
   a single message should be processed here.
 
-  In order to update the data after processing, use the
+  To update the data after processing, use the
   `Broadway.Message.update_data/2` function. This way the new message can be
   properly forwarded and handled by the batcher:
 
@@ -1127,7 +1127,7 @@ defmodule Broadway do
 
   ## Options
 
-  In order to set up how the pipeline created by Broadway should work,
+  To set up how the pipeline created by Broadway should work,
   you need to specify the blueprint of the pipeline. You can
   do this by passing a set of options to `start_link/2`.
   Each component of the pipeline has its own set of options.

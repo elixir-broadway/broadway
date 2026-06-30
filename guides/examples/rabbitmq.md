@@ -6,7 +6,7 @@ Queuing Protocol (AMQP).
 
 ## Getting Started
 
-In order to use Broadway with RabbitMQ, we need to:
+To use Broadway with RabbitMQ, we need to:
 
   1. [Create a queue](#create-a-queue) (or use an existing one)
   1. [Configure our Elixir project to use Broadway](#configure-the-project)
@@ -35,7 +35,7 @@ following command:
 
     $ rabbitmqadmin declare queue name=my_queue durable=true
 
-You can list all declared queues to see our the one we've just created:
+You can list all declared queues to see the one we created:
 
     $ rabbitmqctl list_queues
     Timeout: 60.0 seconds ...
@@ -76,7 +76,7 @@ we need to define three functions: `start_link/1`, `handle_message/3`
 and optionally `handle_batch/4`. We will cover `start_link/1` in this
 section and the `handle_` callbacks in the next one.
 
-Similar to other process-based behaviours, `start_link/1` simply
+Similar to other process-based behaviours, `start_link/1`
 delegates to `Broadway.start_link/2`, which should define the
 producers, processors, and batchers in the Broadway pipeline.
 Assuming we want to consume messages from a queue called
@@ -141,9 +141,9 @@ module docs as well as `Broadway.start_link/2`.
 
 ## Implement Broadway callbacks
 
-In order to process incoming messages, we need to implement the
+To process incoming messages, we need to implement the
 required callbacks. For the sake of simplicity, we're considering that
-all messages received from the queue are just numbers:
+all messages received from the queue are numbers:
 
     defmodule MyBroadway do
       use Broadway
@@ -181,7 +181,7 @@ For more information, see `c:Broadway.handle_message/3` and
 
 ## Run the Broadway pipeline
 
-To run your `Broadway` pipeline, you just need to add as a child in
+To run your `Broadway` pipeline, add it as a child in
 a supervision tree. Most applications have a supervision tree defined
 at `lib/my_app/application.ex`. You can add Broadway as a child to a
 supervisor as follows:
@@ -260,7 +260,7 @@ The `:prefetch_count` setting provides back-pressure by instructing RabbitMQ to 
 See the ["Back-pressure and :prefetch_count"](https://hexdocs.pm/broadway_rabbitmq/BroadwayRabbitMQ.Producer.html#module-back-pressure-and-prefetch_count)
 section of the `BroadwayRabbitMQ` documentation for details.
 
-In order to get a good set of configurations for your pipeline, it's
+To get a good set of configurations for your pipeline, it's
 important to respect the limitations of the servers you're running,
 as well as the limitations of the services you're providing/consuming
 data to/from. Broadway comes with telemetry, so you can measure your

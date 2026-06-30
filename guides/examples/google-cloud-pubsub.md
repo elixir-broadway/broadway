@@ -4,7 +4,7 @@ Cloud Pub/Sub is a fully-managed real-time messaging service provided by Google.
 
 ## Getting Started
 
-In order to use Broadway with Cloud Pub/Sub you need to:
+To use Broadway with Cloud Pub/Sub you need to:
 
   1. Setup a Cloud Pub/Sub project
   1. Configure your Elixir project to use Broadway
@@ -13,7 +13,7 @@ In order to use Broadway with Cloud Pub/Sub you need to:
   1. Run the Broadway pipeline
   1. Tune the configuration (Optional)
 
-If you are just getting familiar with Google Pub/Sub, refer to [the documentation](https://cloud.google.com/pubsub/docs/)
+If you are getting familiar with Google Pub/Sub, refer to [the documentation](https://cloud.google.com/pubsub/docs/)
 to get started. Instead of testing against a live environment, you may also consider using the
 [emulator](https://cloud.google.com/pubsub/docs/emulator) to simulate integrating with Cloud
 Pub/Sub.
@@ -46,7 +46,7 @@ A new topic:
     $ gcloud pubsub topics create test-topic --project test-pubsub
     Created topic [projects/test-pubsub/topics/test-topic].
 
-> Note: If you run this command immediately after creating a new Google Cloud project, you may receive an error indicating that your project's organization policy is still being provisioned. Just wait a couple minutes and try again.
+> Note: If you run this command immediately after creating a new Google Cloud project, you may receive an error indicating that your project's organization policy is still being provisioned. Wait a couple minutes and try again.
 
 And a new subscription:
 
@@ -54,7 +54,7 @@ And a new subscription:
     Created subscription [projects/test-pubsub/subscriptions/test-subscription].
 
 We also need a [service account](https://cloud.google.com/iam/docs/service-accounts), an IAM
-policy, as well as API credentials in order to programmatically work with the service. First, let's
+policy, as well as API credentials to programmatically work with the service. First, let's
 create the service account:
 
     $ gcloud iam service-accounts create test-account --project test-pubsub
@@ -91,7 +91,7 @@ which is a Broadway Cloud Pub/Sub Connector provided by [Dashbit](https://dashbi
 
 ### Starting a new project
 
-If you plan to start a new project, just run:
+If you plan to start a new project, run:
 
     $ mix new my_app --sup
 
@@ -118,7 +118,7 @@ Broadway is a process-based behaviour and to define a Broadway pipeline, we need
 functions: `start_link/1`, `handle_message/3` and `handle_batch/4`. We will cover `start_link/1`
 in this section and the `handle_` callbacks in the next one.
 
-Similar to other process-based behaviour, `start_link/1` simply delegates to
+Similar to other process-based behaviour, `start_link/1` delegates to
 `Broadway.start_link/2`, which should define the producers, processors, and batchers in the
 Broadway pipeline. Assuming we want to consume messages from the `test-subscription`, the minimal
 configuration would be:
@@ -164,7 +164,7 @@ For general information about setting up Broadway, see `Broadway` module docs as
 
 ## Implement Broadway callbacks
 
-In order to process incoming messages, we need to implement the required callbacks. For the sake
+To process incoming messages, we need to implement the required callbacks. For the sake
 of simplicity, we're considering that all messages received from the queue are strings and our
 processor calls `String.upcase/1` on them:
 
@@ -285,7 +285,7 @@ your needs.
       ...callbacks...
     end
 
-In order to get a good set of configurations for your pipeline, it's
+To get a good set of configurations for your pipeline, it's
 important to respect the limitations of the servers you're running,
 as well as the limitations of the services you're providing/consuming
 data to/from. Broadway comes with telemetry, so you can measure your

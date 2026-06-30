@@ -32,7 +32,7 @@ handle_batch/4 runs here -> [batch processor][batch processor]
     calculations, convert data into a custom json format etc. Here is where
     the code from `handle_message/3` runs.
   * `Broadway.Batcher` - Creates batches of messages based on the
-    batcher's key. One batcher for each key will be created.
+    batcher's key. Broadway creates one batcher for each key.
   * `Broadway.BatchProcessor` - This is where the code from `handle_batch/4` runs.
 
 ## The supervision tree
