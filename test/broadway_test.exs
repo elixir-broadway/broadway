@@ -791,6 +791,23 @@ defmodule BroadwayTest do
       assert_receive {:ack, ^ref, [%{status: :ok}, %{status: :ok}], []}
     end
 
+    test "messages use the batcher set through the :batcher option" do
+      broadway_name = new_unique_name()
+
+      {:ok, _broadway} =
+        Broadway.start_link(Forwarder,
+          name: broadway_name,
+          context: %{test_pid: self()},
+          producer: [module: {ManualProducer, []}],
+          processors: [default: [concurrency: 1, min_demand: 1, max_demand: 2]],
+          batchers: [default: [batch_size: 2], custom_batcher: [batch_size: 2]]
+        )
+
+      ref = Broadway.test_batch(broadway_name, [1, 2], batcher: :custom_batcher)
+      assert_receive {:batch_handled, :custom_batcher, [%{data: 1}, %{data: 2}]}
+      assert_receive {:ack, ^ref, [%{data: 1, status: :ok}, %{data: 2, status: :ok}], []}
+    end
+
     test "failed messages are marked as {:failed, reason}", %{broadway: broadway} do
       ref = Broadway.test_message(broadway, :fail)
       assert_receive {:ack, ^ref, _, [%{status: {:failed, "Failed message"}}]}
