@@ -489,7 +489,7 @@ defmodule Broadway do
   use the Ecto SQL Sandbox during tests. This can be done in two
   steps.
 
-  First, when you call `test_messages/3` in your tests, include
+  First, when you call `test_message/3` in your tests, include
   the `:ecto_sandbox` process in the message metadata:
 
       Broadway.test_message(MyApp.Pipeline, message, metadata: %{ecto_sandbox: self()})
