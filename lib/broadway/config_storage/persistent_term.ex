@@ -34,7 +34,7 @@ defmodule Broadway.ConfigStorage.PersistentTerm do
   def delete(_server) do
     # We don't delete from persistent term on purpose. Since the process is
     # named, we can assume it does not start dynamically, so it will either
-    # restart or the amount of memory it uses is negligibla to justify the
+    # restart or the amount of memory it uses is negligible to justify the
     # process purging done by persistent_term. If the repo is restarted and
     # stores the same metadata, then no purging happens either.
     # :persistent_term.erase({Broadway, server})
