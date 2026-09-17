@@ -871,14 +871,14 @@ defmodule Broadway do
       * Measurement: `%{duration: native_time}`
       * Metadata:
 
-      ```
+        ```
         %{
           topology_name: atom,
           name: atom,
           batcher_key: atom,
           telemetry_span_context: reference
         }
-      ```
+        ```
 
   Most of the events follow the `:telemetry.span/3` convention for measurements.
   This means that "start" events have a `:system_time` representing the start of
