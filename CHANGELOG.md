@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.1 (2026-11-04)
+
+* Add :batcher option to test_batch/3
+* Support latest `nimble_options`
+
 ## v1.3.0 (2026-04-17)
 
 * Add telemetry events around `handle_failed`
