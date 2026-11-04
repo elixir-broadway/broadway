@@ -72,7 +72,6 @@ defmodule Broadway.Options do
         ],
         transformer: [
           type: :mfa,
-          default: nil,
           doc: """
           A tuple representing a transformer that translates a produced GenStage event into a
           `%Broadway.Message{}`. The tuple format should be `{mod, fun, opts}` and the function
