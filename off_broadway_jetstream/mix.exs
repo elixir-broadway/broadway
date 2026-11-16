@@ -2,7 +2,7 @@ defmodule OffBroadway.Jetstream.MixProject do
   use Mix.Project
 
   @version "0.1.0"
-  @source_url "https://github.com/jamescarr/broadway/tree/main/off_broadway_jetstream"
+  @source_url "https://github.com/elixir-broadway/broadway/tree/main/off_broadway_jetstream"
 
   def project do
     [

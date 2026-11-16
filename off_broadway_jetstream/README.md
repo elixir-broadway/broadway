@@ -17,7 +17,7 @@ The package lives in a subdirectory of this repository. Add it to your dependenc
 def deps do
   [
     {:off_broadway_jetstream,
-     github: "jamescarr/broadway", sparse: "off_broadway_jetstream"}
+     github: "elixir-broadway/broadway", sparse: "off_broadway_jetstream"}
   ]
 end
 ```

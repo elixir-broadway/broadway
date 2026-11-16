@@ -29,7 +29,7 @@ Broadway takes the burden of defining concurrent GenStage topologies and provide
 
 There are several producers that you can use to integrate with existing services and technologies. [See the docs for detailed how-tos and supported producers](https://hexdocs.pm/broadway/introduction.html#official-producers).
 
-This fork also ships [`off_broadway_jetstream`](off_broadway_jetstream/README.md), a NATS JetStream producer (`OffBroadway.Jetstream.Producer`) built on [gnat](https://hex.pm/packages/gnat).
+This repository also contains [`off_broadway_jetstream`](off_broadway_jetstream/README.md), a NATS JetStream producer (`OffBroadway.Jetstream.Producer`) built on [gnat](https://hex.pm/packages/gnat).
 
 ## Installation
 
